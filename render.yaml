@@ -1,0 +1,32 @@
+services:
+  - type: worker
+    name: nexus-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB
+        value: nexus
+      - key: REDIS_HOST
+        sync: false
+      - key: REDIS_PORT
+        sync: false
+      - key: REDIS_PASSWORD
+        sync: false
+      - key: REDIS_SSL
+        value: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_USERNAME
+        sync: false
+      - key: EVENT_STREAM
+        value: nexus:events
+      - key: EVENT_GROUP
+        value: nexus-workers
+      - key: EVENT_CONSUMER
+        value: worker-1
+    plan: free

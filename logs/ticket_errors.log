@@ -1,0 +1,5 @@
+2026-05-09 00:15:44 | [91mERROR[0m | TicketSystem | close_ticket:1407 | ❌ Erro ao enviar avaliação: 400 Bad Request (error code: 50035): Invalid Form Body
+In components.1.components.1.emoji.name: Invalid emoji
+In components.1.components.2.emoji.name: Invalid emoji
+In components.2.components.0.emoji.name: Invalid emoji
+In components.2.components.1.emoji.name: Invalid emoji

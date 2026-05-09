@@ -39,11 +39,11 @@ STATUS_CHANNEL = os.getenv("STATUS_CHANNEL")  # Opcional
 
 
 # =========================
-# 🎨 LOG SYSTEM MELHORADO
+# 🎨 LOG SYSTEM MELHORADO (MAIS LIMPO)
 # =========================
 
 class Logger:
-    """Sistema de logging melhorado"""
+    """Sistema de logging melhorado e limpo"""
     
     COLORS = {
         'INFO': '\033[92m',    # Verde
@@ -56,7 +56,7 @@ class Logger:
     @staticmethod
     def _log(level: str, msg: str, color: str, emoji: str):
         timestamp = datetime.now().strftime('%H:%M:%S')
-        print(f"{color}[{timestamp}] {emoji} {level:7} | {msg}{Logger.COLORS['RESET']}")
+        print(f"{color}[{timestamp}] {emoji} {level:7} | {msg}{Logger.COLORS['RESET']}", flush=True)
     
     @classmethod
     def info(cls, msg: str):
@@ -86,10 +86,6 @@ log_success = Logger.success
 # =========================
 
 intents = discord.Intents.all()
-# Opcional: limitar intents para performance
-# intents = discord.Intents.default()
-# intents.message_content = True
-# intents.members = True
 
 
 # =========================
@@ -123,7 +119,7 @@ class NexusBot(commands.Bot):
         # Configurar EventBus
         await self.setup_event_bus()
         
-        # Carregar Cogs
+        # Carregar Cogs (logs silenciosos)
         await self.load_all_cogs()
         
         # Registrar views persistentes
@@ -170,7 +166,7 @@ class NexusBot(commands.Bot):
             log_error(f"EventBus middleware erro: {e}")
 
     async def load_all_cogs(self):
-        """Carrega todos os cogs da pasta cogs/"""
+        """Carrega todos os cogs da pasta cogs/ (modo silencioso)"""
         cogs_loaded = 0
         cogs_failed = 0
         
@@ -184,37 +180,37 @@ class NexusBot(commands.Bot):
             if file.name.startswith("_"):
                 continue
             
-            # Converter path para módulo Python
             module = str(file).replace("\\", ".").replace("/", ".")[:-3]
             
             try:
                 await self.load_extension(module)
-                log_success(f"Cog carregada: {module}")
                 cogs_loaded += 1
             except Exception as e:
                 log_error(f"Erro cog {module}: {e}")
                 cogs_failed += 1
         
-        log_info(f"Cogs carregadas: {cogs_loaded} | Falhas: {cogs_failed}")
+        # Resumo compacto (apenas total, sem listar cada cog)
+        log_info(f"Cogs: {cogs_loaded} carregadas | {cogs_failed} falhas")
 
     async def register_persistent_views(self):
         """Registra views persistentes para o bot"""
         try:
+            from cogs.utils.temp_mail import PainelEmailTemp
+            from cogs.utils.temp_number import PainelNumeroTemp
             from cogs.system.register import RegisterPanelView
-            from cogs.utils.temp_mail import PainelEmailTemp  # <-- Nome correto
             
             # Registrar views
             self.add_view(PainelEmailTemp())
+            self.add_view(PainelNumeroTemp())
             
             log_success("Views persistentes registradas")
         except ImportError as e:
-            log_warn(f"Não foi possível registrar algumas views: {e}")
+            log_warn(f"Views: {e}")
         except Exception as e:
             log_error(f"Erro ao registrar views: {e}")
 
     async def on_ready(self):
         """Evento disparado quando o bot está pronto"""
-        # Evitar múltiplas execuções
         if hasattr(self, '_ready_done'):
             return
         
@@ -230,40 +226,29 @@ class NexusBot(commands.Bot):
         # Atualizar Redis com status
         await self.update_redis_status()
         
-        # Log de guilds
+        # Resumo dos servidores (mais compacto)
         log_info(f"Conectado em {len(self.guilds)} servidor(es)")
         for guild in self.guilds:
-            log_info(f"  - {guild.name} ({guild.id}) | {guild.member_count} membros")
+            log_info(f"  └ {guild.name} | {guild.member_count} membros")
         
-        log_success("Bot totalmente operacional!")
+        log_success("Bot operacional!")
 
     async def sync_slash_commands(self):
         """Sincroniza comandos slash com o Discord"""
         try:
-            # Sincronizar globalmente
             synced = await self.tree.sync()
             log_success(f"{len(synced)} comandos slash sincronizados")
-            
-            # Opcional: sincronizar com guild específica para testes
-            # test_guild_id = os.getenv("TEST_GUILD_ID")
-            # if test_guild_id:
-            #     guild = discord.Object(id=int(test_guild_id))
-            #     self.tree.copy_global_to(guild=guild)
-            #     await self.tree.sync(guild=guild)
-            
         except Exception as e:
-            log_error(f"Erro ao sincronizar comandos: {e}")
+            log_error(f"Erro ao sincronizar: {e}")
 
     async def update_bot_status(self):
         """Atualiza o status personalizado do bot"""
         try:
-            # Status rotativo
             activities = [
                 discord.Activity(
                     type=discord.ActivityType.custom,
                     name="Nexus Bot",
-                    state=f"✨ Em {len(self.guilds)} servidores",
-                    details="SaaS Core V2.2"
+                    state=f"✨ Em {len(self.guilds)} servidores"
                 ),
                 discord.Activity(
                     type=discord.ActivityType.watching,
@@ -271,11 +256,10 @@ class NexusBot(commands.Bot):
                 ),
                 discord.Activity(
                     type=discord.ActivityType.listening,
-                    name="!help | /help"
+                    name="/help"
                 )
             ]
             
-            # Rotacionar status a cada 30 segundos
             async def rotate_status():
                 index = 0
                 while not self.is_closed():
@@ -287,10 +271,10 @@ class NexusBot(commands.Bot):
                     await asyncio.sleep(30)
             
             self.loop.create_task(rotate_status())
-            log_success("Status rotativo configurado")
+            log_success("Status configurado")
             
         except Exception as e:
-            log_error(f"Erro ao definir status: {e}")
+            log_error(f"Erro status: {e}")
 
     async def update_redis_status(self):
         """Atualiza status no Redis"""
@@ -298,41 +282,22 @@ class NexusBot(commands.Bot):
             redis_pool.set("nexus:status", "online")
             redis_pool.set("nexus:guilds", str(len(self.guilds)))
             redis_pool.set("nexus:users", str(len(self.users)))
-            redis_pool.set("nexus:uptime", str(
-                (datetime.now(timezone.utc) - self.start_time).total_seconds()
-            ))
         except Exception as e:
-            log_warn(f"Não foi possível atualizar Redis: {e}")
+            log_warn(f"Redis status: {e}")
 
     async def on_guild_join(self, guild: discord.Guild):
         """Evento ao entrar em um novo servidor"""
-        log_info(f"Entrou no servidor: {guild.name} ({guild.id})")
+        log_info(f"+ Servidor: {guild.name} | {guild.member_count} membros")
         
-        # Atualizar Redis
         try:
             redis_pool.set(f"guild:{guild.id}:status", "active", ex=3600)
             redis_pool.set("nexus:guilds", str(len(self.guilds)))
         except:
             pass
-        
-        # Canal de logs se configurado
-        if STATUS_CHANNEL:
-            channel = self.get_channel(int(STATUS_CHANNEL))
-            if channel:
-                embed = discord.Embed(
-                    title="📥 Novo Servidor!",
-                    description=f"Entrei em **{guild.name}**",
-                    color=discord.Color.green(),
-                    timestamp=datetime.now(timezone.utc)
-                )
-                embed.add_field(name="ID", value=guild.id)
-                embed.add_field(name="Membros", value=guild.member_count)
-                embed.add_field(name="Total de Servidores", value=len(self.guilds))
-                await channel.send(embed=embed)
 
     async def on_guild_remove(self, guild: discord.Guild):
         """Evento ao sair de um servidor"""
-        log_info(f"Saiu do servidor: {guild.name} ({guild.id})")
+        log_info(f"- Servidor: {guild.name}")
         
         try:
             redis_pool.delete(f"guild:{guild.id}:status")
@@ -346,25 +311,22 @@ class NexusBot(commands.Bot):
             return
         
         self._shutdown_requested = True
-        log_info("Iniciando shutdown seguro...")
+        log_info("Shutdown em andamento...")
         
-        # Atualizar status no Redis
         try:
             redis_pool.set("nexus:status", "offline")
         except:
             pass
         
-        # Fechar conexões
         mongo_pool.close()
         redis_pool.close()
         
-        # Fechar bot
         await super().close()
-        log_success("Bot encerrado com segurança")
+        log_success("Bot finalizado")
 
 
 # =========================
-# 🚀 START + SHUTDOWN LIMPO
+# 🚀 START
 # =========================
 
 async def main():
@@ -375,27 +337,21 @@ async def main():
     loop = asyncio.get_running_loop()
     
     def signal_handler():
-        """Handler para sinais do sistema"""
         log_warn("Sinal de shutdown recebido")
         asyncio.create_task(bot.close())
     
-    # Registrar handlers para diferentes sistemas operacionais
     for sig in (signal.SIGINT, signal.SIGTERM):
         try:
             loop.add_signal_handler(sig, signal_handler)
         except NotImplementedError:
-            # Windows não suporta signal handlers no asyncio
             pass
     
     try:
         await bot.start(TOKEN)
-        
     except KeyboardInterrupt:
-        log_warn("Interrupção manual (Ctrl+C)")
-    except asyncio.CancelledError:
-        log_warn("Tarefa cancelada")
+        log_warn("Interrupção manual")
     except Exception as e:
-        log_error(f"Erro inesperado: {e}")
+        log_error(f"Erro: {e}")
         raise
     finally:
         if not bot._shutdown_requested:
@@ -406,6 +362,6 @@ if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        print("\n[⚠️] Bot finalizado pelo usuário.")
+        print("\n[⚠️] Bot finalizado.")
     except Exception as e:
         print(f"\n[❌] Erro fatal: {e}")

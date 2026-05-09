@@ -8,21 +8,18 @@
 [![discord.py](https://img.shields.io/badge/discord.py-2.4+-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://github.com/Rapptz/discord.py)
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com)
 [![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io)
-[![QR Code](https://img.shields.io/badge/QR_Code-PIX-00D4AA?style=for-the-badge&logo=qrcode&logoColor=white)](https://www.bcb.gov.br/estabilidadefinanceira/pix)
 
 ![Status](https://img.shields.io/badge/Status-Online-2ea44f?style=flat-square)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Discord](https://img.shields.io/badge/Discord-Support-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/VdFyAr8Gd5)
-[![Code Style](https://img.shields.io/badge/code%20style-pep8-000000?style=flat-square)](https://peps.python.org/pep-0008/)
 
-### ✨ *Sistema de Tickets • Email Temporário • Número Virtual • Encurtador de Links • Geração de Senhas • Pagamentos PIX*
+### ✨ *Sistema de Tickets • Email Temporário • Número Virtual • Encurtador de Links • Geração de Senhas*
 
 <br>
 
 <img src="https://img.shields.io/badge/Components-V2-9C27B0?style=for-the-badge&logo=discord&logoColor=white">
 <img src="https://img.shields.io/badge/Arquitetura-SaaS-00ACC1?style=for-the-badge&logo=cloud&logoColor=white">
 <img src="https://img.shields.io/badge/Event_Bus-V2.2-FF6D00?style=for-the-badge&logo=eventbrite&logoColor=white">
-<img src="https://img.shields.io/badge/Pagamentos-PIX-00D4AA?style=for-the-badge&logo=pix&logoColor=white">
 
 <br>
 
@@ -51,7 +48,7 @@
 
 ## 🎯 Visão Geral
 
-> **Nexus Bot** é uma plataforma SaaS (Software as a Service) completa para Discord, desenvolvida com a mais recente tecnologia **Components V2** da Discord API. O bot oferece uma suíte de ferramentas profissionais para servidores, incluindo sistema de tickets, emails temporários, números virtuais, encurtador de links, gerador de senhas e **pagamentos via PIX**.
+> **Nexus Bot** é uma plataforma SaaS (Software as a Service) completa para Discord, desenvolvida com a mais recente tecnologia **Components V2** da Discord API. O bot oferece uma suíte de ferramentas profissionais para servidores, incluindo sistema de tickets, emails temporários, números virtuais, encurtador de links e gerador de senhas.
 
 <div align="center">
   
@@ -69,23 +66,10 @@
 | **💾 Cache Inteligente** | Redis para caching e persistência de dados |
 | **🎨 UI Moderna** | Design clean com containers coloridos e mídia embutida |
 | **🔐 Seguro** | Tokens e dados sensíveis protegidos via .env |
-| **💳 Pagamentos PIX** | Geração de QR Code e payload EMV para cobranças |
 
 ---
 
 ## ✨ Funcionalidades
-
-### 💳 **Sistema de Pagamentos PIX (PRÉMIUM)**
-- ✅ Geração de QR Code instantâneo
-- ✅ Payload EMV completo (padrão oficial do Banco Central)
-- ✅ Código copia e cola
-- ✅ Configuração de chave PIX por servidor
-- ✅ Validade configurável das cobranças
-- ✅ Histórico completo de cobranças
-- ✅ Modal interativo para criar cobranças
-- ✅ Comando rápido `/pix_quick`
-- ✅ Confirmação de pagamento manual
-- ✅ Suporte a múltiplos servidores
 
 ### 🎫 **Sistema de Tickets (Components V2)**
 - ✅ Criação de tickets por categorias customizáveis
@@ -171,15 +155,15 @@
 │          • Redis Pub/Sub • Distributed Events              │
 └─────────────────────────┬───────────────────────────────────┘
                           │
-        ┌─────────────────┼─────────────────┬─────────────────┐
-        │                 │                 │                 │
-┌───────▼───────┐ ┌───────▼───────┐ ┌───────▼───────┐ ┌───────▼───────┐
-│    MongoDB    │ │     Redis     │ │   External    │ │   QR Code     │
-│   (Primary)   │ │   (Cache +    │ │     APIs      │ │   Generator   │
-│   • Dados     │ │    Pub/Sub)   │ │  • mail.tm    │ │   • EMV PIX   │
-│   • Configs   │ │   • Sessions  │ │  • TinyURL    │ │   • CRC16     │
-│   • Logs      │ │   • Metrics   │ │  • GitHub     │ │   • Payload   │
-└───────────────┘ └───────────────┘ └───────────────┘ └───────────────┘
+        ┌─────────────────┼─────────────────┐
+        │                 │                 │
+┌───────▼───────┐ ┌───────▼───────┐ ┌───────▼───────┐
+│    MongoDB    │ │     Redis     │ │   External    │
+│   (Primary)   │ │   (Cache +    │ │     APIs      │
+│   • Dados     │ │    Pub/Sub)   │ │  • mail.tm    │
+│   • Configs   │ │   • Sessions  │ │  • TinyURL    │
+│   • Logs      │ │   • Metrics   │ │  • GitHub     │
+└───────────────┘ └───────────────┘ └───────────────┘
 ```
 
 ### 📁 Estrutura de Diretórios
@@ -194,8 +178,7 @@ nexus-bot/
 │   │   └── guild_members.py # Eventos de membros
 │   ├── system/
 │   │   ├── register.py     # Sistema de registro
-│   │   ├── tickets.py      # Sistema de tickets
-│   │   └── pix_payments.py # Sistema de pagamentos PIX (NOVO)
+│   │   └── tickets.py      # Sistema de tickets
 │   └── utils/
 │       ├── password_gen.py # Gerador de senhas
 │       ├── temp_mail.py    # Email temporário
@@ -221,7 +204,6 @@ nexus-bot/
 🍃 MongoDB Atlas (ou local)
 📡 Redis Cloud (ou local)
 🤖 Discord Bot Token
-📱 Biblioteca QR Code
 ```
 
 ### Passo a Passo
@@ -255,8 +237,6 @@ pymongo>=4.5.0
 redis>=5.0.0
 aiohttp>=3.9.0
 python-dotenv>=1.0.0
-qrcode>=7.4.2          # Para geração de QR Code PIX
-pillow>=10.0.0         # Para manipulação de imagens
 ```
 
 ---
@@ -315,26 +295,11 @@ EVENT_CONSUMER=worker-1
 - Use External Emojis
 - View Channel
 - Manage Webhooks
-- Attach Files (para QR Code)
 ```
 
 ---
 
 ## 📦 Cogs e Módulos
-
-### 💳 PIXPaymentSystem (`cogs/system/pix_payments.py`) - **NOVO**
-Sistema completo de pagamentos via PIX com geração de QR Code e payload EMV.
-
-**Comandos:**
-- `/pix` - Abrir painel principal
-- `/pix_config` - Configurar chave PIX (Admin)
-- `/pix_quick` - Criar cobrança rápida
-
-**Características:**
-- Geração de QR Code em tempo real
-- Payload EMV padrão Banco Central
-- Histórico de cobranças
-- Confirmação manual de pagamento
 
 ### 🎫 TicketSystem (`cogs/system/tickets.py`)
 O coração do bot. Sistema completo de tickets com suporte a múltiplas categorias, transcripts e avaliações.
@@ -366,14 +331,14 @@ Encurtador de links via TinyURL.
 
 **Comandos:**
 - `/enviar_painel_url` - Painel principal
-- `/encurtar <url>` - Encurtar rapidamente
-- `/meus_links` - Ver histórico
+- `/encurtar` - Encurtar rapidamente
+- `/meus_links` - Histórico
 
 ### 🔐 PasswordGeneratorSystem (`cogs/utils/password_gen.py`)
 Gerador de senhas seguras.
 
 **Comandos:**
-- `/enviar_painel_senha` - Abrir painel
+- `/enviar_painel_senha` - Painel principal
 
 ### 👥 RegisterSystem (`cogs/system/register.py`)
 Sistema de registro de membros.
@@ -442,7 +407,6 @@ view.add_item(section)
 - `guild_config` - Configurações por servidor
 - `ticket_config` - Configurações de tickets
 - `ticket_events` - Logs de eventos
-- `pix_config` - Configurações de PIX **(NOVO)**
 
 ### Redis (Cache + Pub/Sub)
 
@@ -455,9 +419,6 @@ view.add_item(section)
 ```
 guild:{id}:config          # Configuração do servidor
 ticket:{id}                # Dados do ticket
-pix_config:{guild}         # Configuração PIX do servidor (NOVO)
-pix_cobranca:{id}          # Dados da cobrança PIX (NOVO)
-pix_history:{guild}:{user} # Histórico de cobranças (NOVO)
 user_tickets:{guild}:{user} # Tickets do usuário
 tempmail:{guild}:{user}    # Sessão de email
 tempnumber:{guild}:{user}  # Sessão de número
@@ -492,7 +453,6 @@ async def on_member_join(event):
 | **TinyURL** | `https://tinyurl.com/api-create.php` | Encurtador de links |
 | **GitHub Gist** | `https://api.github.com/gists` | Transcripts |
 | **OnlineSMS** | `https://online-sms.org` | Números temporários |
-| **QR Code (local)** | `qrcode` + `pillow` | Geração de QR Code PIX |
 
 ### Webhooks
 
@@ -504,13 +464,6 @@ webhook_url = f"https://discord.com/api/v10/webhooks/{app_id}/{token}"
 ---
 
 ## 📝 Comandos
-
-### 💳 PIX (NOVO)
-| Comando | Descrição | Permissão |
-|---------|-----------|-----------|
-| `/pix` | Abrir painel principal | Todos |
-| `/pix_config` | Configurar chave PIX do servidor | Admin |
-| `/pix_quick <valor> [descricao]` | Criar cobrança rápida | Todos |
 
 ### 🎫 Tickets
 | Comando | Descrição | Permissão |
@@ -576,7 +529,6 @@ webhook_url = f"https://discord.com/api/v10/webhooks/{app_id}/{token}"
 - ✅ **Timeout em Views** (prevenção de abuso)
 - ✅ **Anti-Duplicate** em eventos críticos
 - ✅ **Logs Detalhados** para auditoria
-- ✅ **Validação de Chaves PIX** (formato)
 
 ### Proteção de Dados
 
@@ -584,7 +536,6 @@ webhook_url = f"https://discord.com/api/v10/webhooks/{app_id}/{token}"
 - Sessões expiram automaticamente
 - Dados sensíveis em Redis com TTL
 - MongoDB com autenticação
-- **Payload PIX** armazenado temporariamente (1 hora)
 
 ---
 
@@ -610,7 +561,7 @@ webhook_url = f"https://discord.com/api/v10/webhooks/{app_id}/{token}"
 ```
 MIT License
 
-Copyright (c) 2025 Nexus Platforms
+Copyright (c) 2024 Nexus Platforms
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -639,8 +590,6 @@ in the Software without restriction...
 - **mail.tm** - API de emails
 - **TinyURL** - Encurtador
 - **OnlineSMS** - Números virtuais
-- **qrcode & pillow** - Geração de QR Code
-- **Banco Central do Brasil** - Especificação EMV PIX
 
 ---
 
@@ -666,8 +615,5 @@ in the Software without restriction...
 
 **Nexus Bot © 2025 | Nexus Platforms**
 
----
-
-### 🚀 Última Atualização: Sistema de Pagamentos PIX adicionado!
-
 </div>
+

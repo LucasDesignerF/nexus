@@ -1,0 +1,105 @@
+2026-05-08 23:52:07 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-08 23:52:07 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-08 23:52:07 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-08 23:54:06 | [92mINFO[0m | TicketSystem | log:194 | [CONFIG] Config salva para guild 1291985673594736662
+2026-05-08 23:58:12 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-08 23:58:12 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-08 23:58:12 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-08 23:58:52 | [92mINFO[0m | TicketSystem | log:194 | [CONFIG] Config salva para guild 1291985673594736662
+2026-05-09 00:00:32 | [92mINFO[0m | TicketSystem | log:194 | [CONFIG] Config salva para guild 1291985673594736662
+2026-05-09 00:00:44 | [92mINFO[0m | TicketSystem | log:194 | [PANEL] Enviando painel para <#1408250091147497707>
+2026-05-09 00:01:48 | [92mINFO[0m | TicketSystem | log:194 | [CONFIG] Config salva para guild 1291985673594736662
+2026-05-09 00:01:57 | [92mINFO[0m | TicketSystem | log:194 | [PANEL] Enviando painel para <#1408250091147497707>
+2026-05-09 00:02:23 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778306542 salvo
+2026-05-09 00:02:24 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778306542 criado por lrfortes
+2026-05-09 00:02:29 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778306542 salvo
+2026-05-09 00:02:30 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778306542 assumido por lrfortes
+2026-05-09 00:05:51 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 00:05:51 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 00:05:51 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 00:06:49 | [92mINFO[0m | TicketSystem | log:194 | [PANEL] Enviando painel para <#1408250091147497707>
+2026-05-09 00:06:53 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778306813 salvo
+2026-05-09 00:06:55 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778306813 criado por lrfortes
+2026-05-09 00:06:58 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778306813 salvo
+2026-05-09 00:06:58 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778306813 assumido por lrfortes
+2026-05-09 00:07:21 | [92mINFO[0m | TicketSystem | log:194 | [GIST] ✅ Transcript enviado: https://gist.github.com/LucasDesignerF/7fc973a96254bcaa1ab82b6705002cf2
+2026-05-09 00:07:26 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778306813 removido
+2026-05-09 00:07:27 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778306813 encerrado
+2026-05-09 00:10:35 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 00:10:35 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 00:10:35 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 00:10:50 | [92mINFO[0m | TicketSystem | log:194 | [PANEL] Enviando painel para <#1408250091147497707>
+2026-05-09 00:10:54 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307054 salvo
+2026-05-09 00:10:56 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307054 criado por lrfortes
+2026-05-09 00:10:58 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307054 salvo
+2026-05-09 00:10:58 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307054 assumido por lrfortes
+2026-05-09 00:11:03 | [92mINFO[0m | TicketSystem | log:194 | [GIST] ✅ Transcript enviado: https://gist.github.com/LucasDesignerF/7022b3591103a9262c806fe8b6ecab12
+2026-05-09 00:11:04 | [92mINFO[0m | TicketSystem | close_ticket:1360 | ✅ Avaliação enviada para lrfortes (Ticket: 1219787450583486500_1778307054)
+2026-05-09 00:11:09 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307054 removido
+2026-05-09 00:11:10 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307054 encerrado
+2026-05-09 00:14:34 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 00:14:34 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 00:14:34 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 00:15:23 | [92mINFO[0m | TicketSystem | log:194 | [PANEL] Enviando painel para <#1408250037112143902>
+2026-05-09 00:15:28 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307328 salvo
+2026-05-09 00:15:29 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307328 criado por lrfortes
+2026-05-09 00:15:38 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307328 salvo
+2026-05-09 00:15:38 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307328 assumido por lrfortes
+2026-05-09 00:15:43 | [92mINFO[0m | TicketSystem | log:194 | [GIST] ✅ Transcript enviado: https://gist.github.com/LucasDesignerF/b39a1e4ba8189c6a9fceadf876630fd5
+2026-05-09 00:15:44 | [91mERROR[0m | TicketSystem | close_ticket:1407 | ❌ Erro ao enviar avaliação: 400 Bad Request (error code: 50035): Invalid Form Body
+In components.1.components.1.emoji.name: Invalid emoji
+In components.1.components.2.emoji.name: Invalid emoji
+In components.2.components.0.emoji.name: Invalid emoji
+In components.2.components.1.emoji.name: Invalid emoji
+2026-05-09 00:15:49 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307328 removido
+2026-05-09 00:15:49 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307328 encerrado
+2026-05-09 00:17:19 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 00:17:19 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 00:17:19 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 00:17:34 | [92mINFO[0m | TicketSystem | log:194 | [PANEL] Enviando painel para <#1408250037112143902>
+2026-05-09 00:17:38 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307458 salvo
+2026-05-09 00:17:40 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307458 criado por lrfortes
+2026-05-09 00:17:44 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307458 salvo
+2026-05-09 00:17:44 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307458 assumido por lrfortes
+2026-05-09 00:17:47 | [92mINFO[0m | TicketSystem | log:194 | [GIST] ✅ Transcript enviado: https://gist.github.com/LucasDesignerF/c6f48297f642dae36e6f2dc302294524
+2026-05-09 00:17:49 | [92mINFO[0m | TicketSystem | close_ticket:1403 | ✅ Avaliação enviada para lrfortes (Ticket: 1219787450583486500_1778307458)
+2026-05-09 00:17:54 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307458 removido
+2026-05-09 00:17:54 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307458 encerrado
+2026-05-09 00:17:57 | [92mINFO[0m | TicketSystem | process_rating:692 | Avaliação recebida: Ticket 1219787450583486500_1778307458 - Nota 5 estrelas
+2026-05-09 00:18:03 | [92mINFO[0m | TicketSystem | process_rating:692 | Avaliação recebida: Ticket 1219787450583486500_1778307458 - Nota 5 estrelas
+2026-05-09 00:18:07 | [92mINFO[0m | TicketSystem | process_rating:692 | Avaliação recebida: Ticket 1219787450583486500_1778307458 - Nota 5 estrelas
+2026-05-09 00:25:50 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 00:25:50 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 00:25:50 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 00:26:18 | [92mINFO[0m | TicketSystem | log:194 | [PANEL] Enviando painel para <#1408250037112143902>
+2026-05-09 00:26:23 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307982 salvo
+2026-05-09 00:26:24 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307982 criado por lrfortes
+2026-05-09 00:26:28 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307982 salvo
+2026-05-09 00:26:29 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307982 assumido por lrfortes
+2026-05-09 00:26:33 | [92mINFO[0m | TicketSystem | log:194 | [GIST] ✅ Transcript enviado: https://gist.github.com/LucasDesignerF/1e4872319a535f1893e8db5c195659fc
+2026-05-09 00:26:33 | [92mINFO[0m | TicketSystem | close_ticket:1408 | ✅ Avaliação enviada para lrfortes (Ticket: 1219787450583486500_1778307982)
+2026-05-09 00:26:37 | [93mWARNING[0m | TicketSystem | process_rating:685 | ⚠️ Nenhum canal de avaliações configurado
+2026-05-09 00:26:37 | [92mINFO[0m | TicketSystem | process_rating:697 | Avaliação recebida: Ticket 1219787450583486500_1778307982 - Nota 5 estrelas
+2026-05-09 00:26:39 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307982 removido
+2026-05-09 00:26:39 | [92mINFO[0m | TicketSystem | log:194 | [TICKET] Ticket 1219787450583486500_1778307982 encerrado
+2026-05-09 00:52:25 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 00:52:25 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 00:52:25 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 00:56:08 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 00:56:08 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 00:56:08 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 01:00:17 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 01:00:17 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 01:00:17 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 01:03:23 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 01:03:23 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 01:03:23 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 01:06:54 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 01:06:54 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 01:06:54 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 01:09:30 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 01:09:30 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 01:09:30 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!
+2026-05-09 01:20:17 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem carregado
+2026-05-09 01:20:17 | [92mINFO[0m | TicketSystem | log:194 | [INIT] TicketSystem pronto para uso
+2026-05-09 01:20:17 | [92mINFO[0m | TicketSystem | log:194 | [SETUP] ✅ TicketSystem carregado com sucesso!

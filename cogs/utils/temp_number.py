@@ -312,7 +312,7 @@ class BtnVerificarSMS(discord.ui.Button):
             await interaction.response.send_message(view=create_text_only_view("❌ Este painel não pertence a você."), ephemeral=True)
             return
 
-        await interaction.response.defer()
+        await interaction.response.defer(ephemeral=True)
         
         api = OnlineSMSAPI()
         try:
@@ -543,29 +543,50 @@ class BtnCriarNumeroTemp(discord.ui.Button):
             ("🇮🇹 Itália", "IT"),
         ]
         
+        # CORREÇÃO PRINCIPAL: Adicionar botões dentro de Sections
         for nome, codigo in paises:
+            # Criar botão de seleção
             btn = discord.ui.Button(
-                label=nome,
+                label="Selecionar",
                 style=discord.ButtonStyle.secondary,
                 custom_id=f"tempnumber:select_{codigo}",
                 emoji="📞"
             )
+            
+            # Criar Section com o botão como accessory
+            section = discord.ui.Section(accessory=btn)
+            section.add_item(discord.ui.TextDisplay(content=nome))
+            
+            # Definir callback usando partial
             btn.callback = functools.partial(self.pais_selecionado, country=codigo, country_name=nome)
-            container.add_item(btn)
+            
+            # Adicionar Section ao container
+            container.add_item(section)
         
         view = discord.ui.LayoutView()
         view.add_item(container)
         
         # ENVIA O MENU DE SELEÇÃO
-        await interaction.response.send_message(view=view, ephemeral=True)
-        log("BUTTON", "Menu de seleção de país enviado")
+        try:
+            await interaction.response.send_message(view=view, ephemeral=True)
+            log("BUTTON", "Menu de seleção de país enviado")
+        except Exception as e:
+            err("SELECAO_PAIS", e)
+            await interaction.response.send_message(
+                view=create_text_only_view(f"❌ Erro ao exibir menu: {str(e)[:100]}"),
+                ephemeral=True
+            )
     
     async def pais_selecionado(self, interaction: discord.Interaction, country: str, country_name: str):
         """Callback quando um país é selecionado"""
         log("BUTTON", f"País {country_name} selecionado por {interaction.user.id}")
         
         # DEFER primeiro para evitar timeout
-        await interaction.response.defer(ephemeral=True)
+        try:
+            await interaction.response.defer(ephemeral=True)
+        except Exception as e:
+            log("DEFER", f"Falha ao deferir: {str(e)}")
+            # Mesmo se defer falhar, continuar
         
         # Busca o número na API
         new_data = await create_new_number(interaction.user.id, country)
@@ -583,13 +604,23 @@ class BtnCriarNumeroTemp(discord.ui.Button):
             )
             
             # Envia o container com os botões
-            await interaction.followup.send(view=view, ephemeral=True)
-            log("BUTTON", f"Painel de gerenciamento enviado para +{new_data['number']}")
+            try:
+                await interaction.followup.send(view=view, ephemeral=True)
+                log("BUTTON", f"Painel de gerenciamento enviado para +{new_data['number']}")
+            except Exception as e:
+                err("GERENCIAMENTO", e)
+                await interaction.followup.send(
+                    view=create_text_only_view(f"❌ Erro ao exibir painel: {str(e)[:100]}"),
+                    ephemeral=True
+                )
         else:
-            await interaction.followup.send(
-                view=create_text_only_view(f"❌ Erro ao obter número para {country_name}. Tente novamente."),
-                ephemeral=True
-            )
+            try:
+                await interaction.followup.send(
+                    view=create_text_only_view(f"❌ Erro ao obter número para {country_name}. Tente novamente."),
+                    ephemeral=True
+                )
+            except Exception as e:
+                err("FOLLOWUP", e)
 
 
 class BtnMeuNumero(discord.ui.Button):
